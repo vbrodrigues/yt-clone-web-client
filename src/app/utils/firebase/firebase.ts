@@ -2,11 +2,11 @@ import { initializeApp } from "firebase/app";
 import {getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User} from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDZbW5KNuhspem1dB51-MRZoKDQD9xz1Gk",
-  authDomain: "yt-backend-a1d04.firebaseapp.com",
-  projectId: "yt-backend-a1d04",
-  appId: "1:113091128844:web:f489ed446655a1fb6a8829"
-};
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    appId: ""
+  };
 
 const app = initializeApp(firebaseConfig);
 
