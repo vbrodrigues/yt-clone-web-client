@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import SignIn from './SignIn'
 import { onAuthStateChangedHelper } from '@/app/utils/firebase/firebase'
 import { User } from 'firebase/auth'
+import Upload from './Upload'
 
 function Navbar() {
 
@@ -24,6 +25,10 @@ function Navbar() {
         <Link className='cursor-pointer' href='/'>
             <Image src='/youtube-logo.svg' alt='YouTube Logo' width={90} height={20} />
         </Link>
+
+        {user && (
+            <Upload />
+        )}
 
         <SignIn user={user} />
     </div>
