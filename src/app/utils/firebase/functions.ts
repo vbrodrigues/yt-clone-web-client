@@ -1,9 +1,19 @@
 import { getFunctions, httpsCallable } from "firebase/functions";
-
-// This works only because we already initialized the Firebase app in the ./firebase.ts file
-const functions = getFunctions();
+import { functions } from "./firebase";
 
 const generateUploadUrl = httpsCallable(functions, 'generateUploadUrl');
+const getVideosFunction = httpsCallable(functions, 'getVideos');
+
+export interface Video {
+    id?: string,
+    uid?: string,
+    filename?: string,
+    status?: 'processing' | 'processed', 
+    title?: string, 
+    description?: string,
+    createdAt?: Date, 
+    finishedAt?: Date
+}
 
 export async function uploadVideo(file: File) {
     const response: any = await generateUploadUrl({
@@ -19,4 +29,9 @@ export async function uploadVideo(file: File) {
     });
 
     return;
+}
+
+export async function getVideos() {
+    const response = await getVideosFunction();
+    return response.data as Video[];
 }
